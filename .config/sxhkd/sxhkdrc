@@ -1,0 +1,28 @@
+ctrl + alt + t
+	$TERMINAL
+super + m
+	$TERMINAL -e mutt
+super + f
+	$TERMINAL -e vifm
+super + e
+	$TERMINAL -e vim
+super + b
+	$BROWSER
+super + s
+	$TERMINAL -e alsamixer
+super + l
+	slock
+super + t
+	/home/master/shellscripts/touchpad_toggle.sh 
+super + g
+	gimp
+Print
+	scrot $HOME/Pictures/Screenshots/%Y-%m-%d-$(date +%H-%M-%S).png
+super + Print
+	scrot -u $HOME/Pictures/Screenshots/windowed%Y-%m-%d-$(date +%H-%M-%S).png
+super + w
+	wpa_gui
+super + ctrl + f
+	mount /mnt/flash
+super + ctrl + shift + f
+	umount /mnt/flash

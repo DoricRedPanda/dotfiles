@@ -1,0 +1,35 @@
+set selection-clipboard clipboard
+set statusbar-home-tilde "true"
+set window-title-home-tilde "true"
+#set smooth-scroll "true"
+set scroll-step 100
+set font "monospace normal 11"
+set recolor-reverse-video "true"
+set adjust-open "best-fit"
+set guioptions "v"
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 100
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+map [fullscreen] u scroll half-up
+map [fullscreen] d scroll half-down
+
+
+set default-bg "#2E3440"
+set default-fg "#D8DEE9"
+set recolor-lightcolor "#ECEFF4"
+set recolor-darkcolor "#2E3440"
+set recolor "true"
+
+set recolor-keephue             "true"
+set render-loading "false"

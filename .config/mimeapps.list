@@ -1,0 +1,35 @@
+[Default Applications]
+x-scheme-handler/http=userapp-Firefox-TGUOUZ.desktop
+x-scheme-handler/https=userapp-Firefox-TGUOUZ.desktop
+x-scheme-handler/ftp=userapp-Firefox-TGUOUZ.desktop
+x-scheme-handler/chrome=userapp-Firefox-TGUOUZ.desktop
+text/html=userapp-Firefox-TGUOUZ.desktop
+application/x-extension-htm=userapp-Firefox-TGUOUZ.desktop
+application/x-extension-html=userapp-Firefox-TGUOUZ.desktop
+application/x-extension-shtml=userapp-Firefox-TGUOUZ.desktop
+application/xhtml+xml=userapp-Firefox-TGUOUZ.desktop
+application/x-extension-xhtml=userapp-Firefox-TGUOUZ.desktop
+application/x-extension-xht=userapp-Firefox-TGUOUZ.desktop
+application/postscript=pdf.desktop;
+application/pdf=pdf.desktop;
+image/png=img.desktop;
+image/jpeg=img.desktop;
+image/gif=img.desktop;
+application/pdf=zathura.desktop
+text/plain=text.desktop;
+text/x-shellscript=text.desktop;
+x-scheme-handler/magnet=torrent.desktop;
+application/x-bittorrent=torrent.desktop;
+x-scheme-handler/mailto=mail.desktop;
+
+[Added Associations]
+x-scheme-handler/ftp=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;
+x-scheme-handler/chrome=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;
+text/html=userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MFTBRZ.desktop;
+application/x-extension-htm=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;
+application/x-extension-html=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;
+application/x-extension-shtml=userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MFTBRZ.desktop;
+application/xhtml+xml=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;
+application/x-extension-xhtml=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;
+application/x-extension-xht=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;
+application/xml=firefox-bin.desktop;
