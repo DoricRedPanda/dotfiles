@@ -20,7 +20,7 @@ complete -cf sudo
 # colors
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias youtube-dl='youtube-dl --all-subs --sub-lang en -f bestvideo[height\<=?1080][vcodec!=vp9]+bestaudio/best --embed-subs '
+alias youtube-dl='youtube-dl --all-subs --sub-lang en -f bestvideo[height\<=?1080][vcodec=vaapi]+bestaudio/best --embed-subs '
 alias areco='arecord --channels=1 --format=dat --vumeter=stereo /tmp/test.wav'
 alias h='cat .config/sxhkd/sxhkdrc'
 

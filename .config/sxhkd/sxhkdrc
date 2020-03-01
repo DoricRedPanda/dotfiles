@@ -13,7 +13,7 @@ super + s
 super + l
 	slock
 super + t
-	/home/master/shellscripts/touchpad_toggle.sh 
+	touchpad_toggle.sh
 super + g
 	gimp
 Print

@@ -8,7 +8,7 @@ xset s 600
 xhost +local: &
 /usr/bin/gpg-agent --daemon
 while true; do
-	xsetroot -name " $(date +%R | tr '\n' ' ')"
+	xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date +%R | tr '\n' ' ')"
 	sleep 1m
 done &
 xwallpaper --zoom $HOME/Pictures/Wallpapers/hm4k.jpg
