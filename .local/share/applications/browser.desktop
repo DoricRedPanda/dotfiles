@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Browser(Sandboxed)
+Exec=$BROWSER %u

@@ -1,20 +1,26 @@
-#!/bin/bash
+#!/bin/sh
 
 xset fp+ /usr/share/fonts/terminus/
-xrdb -merge $HOME/.Xresources
-xrdb -merge $HOME/.themes/nord
+xrdb -merge $HOME/.config/X11/Xresources
+xrdb -merge $HOME/.config/X11/nord
 xset s on
 xset s 600
 xhost +local: &
-/usr/bin/gpg-agent --daemon
+#/usr/bin/gpg-agent --daemon
 while true; do
-	xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date +%R | tr '\n' ' ')"
-	sleep 1m
+	STATUSLINE=" $(date +%R | tr '\n' ' ')"
+	[ "$(cat /sys/class/power_supply/BAT0/status)" != "Discharging" ] ||
+		{ BATTERY=$(cat /sys/class/power_supply/BAT0/capacity) &&
+		STATUSLINE=" $BATTERY% |$STATUSLINE" &&
+		[ $BATTERY -lt 25 ] &&
+		notify-send -u critical "Battery critically low."
+	}
+
+	xsetroot -name "$STATUSLINE"
+	sleep 30
 done &
-xwallpaper --zoom $HOME/Pictures/Wallpapers/hm4k.jpg
 #/usr/bin/xcompmgr &
-TERMINAL=st BROWSER=firefox-bin /usr/bin/sxhkd &
-if [ $(date +%H) -gt 20 ]; then
-	/usr/local/bin/sct 4500 0.5;
-fi
+/usr/bin/sxhkd &
+[ $(date +%H) -gt 20 ] && /usr/local/bin/sct 3500 0.7 &
+xwallpaper --zoom $HOME/Pictures/Wallpapers/hm4k.jpg &
 exec /usr/bin/dwm

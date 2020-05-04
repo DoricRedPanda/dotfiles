@@ -1,20 +1,11 @@
 [Default Applications]
-x-scheme-handler/http=userapp-Firefox-MNBSG0.desktop
-x-scheme-handler/https=userapp-Firefox-MNBSG0.desktop
-x-scheme-handler/ftp=userapp-Firefox-MNBSG0.desktop
-x-scheme-handler/chrome=userapp-Firefox-MNBSG0.desktop
-text/html=userapp-Firefox-MNBSG0.desktop
-application/x-extension-htm=userapp-Firefox-MNBSG0.desktop
-application/x-extension-html=userapp-Firefox-MNBSG0.desktop
-application/x-extension-shtml=userapp-Firefox-MNBSG0.desktop
-application/xhtml+xml=userapp-Firefox-MNBSG0.desktop
-application/x-extension-xhtml=userapp-Firefox-MNBSG0.desktop
-application/x-extension-xht=userapp-Firefox-MNBSG0.desktop
 application/postscript=pdf.desktop;
 application/pdf=pdf.desktop;
 image/png=img.desktop;
 image/jpeg=img.desktop;
 image/gif=img.desktop;
+inode/directory=file.desktop
+x-directory/normal=file.desktop
 application/pdf=zathura.desktop
 text/plain=text.desktop;
 text/x-shellscript=text.desktop;
@@ -22,16 +13,9 @@ x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
 x-scheme-handler/mailto=mail.desktop;
 
-[Added Associations]
-x-scheme-handler/ftp=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MNBSG0.desktop;
-x-scheme-handler/chrome=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MNBSG0.desktop;
-text/html=userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-MNBSG0.desktop;
-application/x-extension-htm=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MNBSG0.desktop;
-application/x-extension-html=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MNBSG0.desktop;
-application/x-extension-shtml=userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-MNBSG0.desktop;
-application/xhtml+xml=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MNBSG0.desktop;
-application/x-extension-xhtml=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MNBSG0.desktop;
-application/x-extension-xht=userapp-Firefox-MFTBRZ.desktop;userapp-Firefox-TGUOUZ.desktop;userapp-Firefox-MNBSG0.desktop;
-application/xml=firefox-bin.desktop;
-x-scheme-handler/http=userapp-Firefox-MNBSG0.desktop;
-x-scheme-handler/https=userapp-Firefox-MNBSG0.desktop;
+text/html=browser.desktop;
+text/xml=browser.desktop;
+application/xhtml+xml=browser.desktop;
+text/mml=browser.desktop;
+x-scheme-handler/http=browser.desktop;
+x-scheme-handler/https=browser.desktop;

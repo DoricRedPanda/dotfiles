@@ -17,12 +17,8 @@ super + t
 super + g
 	gimp
 Print
-	scrot $HOME/Pictures/Screenshots/%Y-%m-%d-$(date +%H-%M-%S).png
+	scrot $HOME/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png -e 'xclip -selection clipboard -t image/png $f'
 super + Print
-	scrot -u $HOME/Pictures/Screenshots/windowed%Y-%m-%d-$(date +%H-%M-%S).png
+	scrot -u $HOME/Pictures/Screenshots/windowed%Y-%m-%d-%H-%M-%S.png -e 'xclip -selection clipboard -t image/png $f'
 super + w
 	wpa_gui
-super + ctrl + f
-	mount /mnt/flash
-super + ctrl + shift + f
-	umount /mnt/flash
