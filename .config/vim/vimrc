@@ -1,6 +1,6 @@
 "changes Vi settings to Vim settings
 set nocompatible
-filetype plugin on
+filetype plugin indent on
 "numbers apparently
 set number
 set relativenumber " show relative line numbers
@@ -32,9 +32,11 @@ set cin
 "wrap long lines
 set wrap
 
-"width of text and highlighting
-"set textwidth=80
-"set colorcolumn=80
+"split, keep it nice and 80x24
+set splitbelow splitright
+set winwidth=80
+set winheight=24
+set noequalalways
 
 "sugar
 set sm
@@ -58,11 +60,11 @@ set directory=$XDG_DATA_HOME/vim/swap
 set backupdir=$XDG_DATA_HOME/vim/backup
 set viewdir=$XDG_DATA_HOME/vim/view
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+set runtimepath=$XDG_CONFIG_HOME/vim,/usr/share/vim/vimfiles,$VIMRUNTIME,/usr/share/vim/vimfiles/after,$XDG_CONFIG_HOME/vim/after
 
 "save folds
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview
 
 "cursor shape (change term name) and colors
 if &term =~ 'st-256color'
@@ -76,15 +78,23 @@ if &term =~ 'st-256color'
 	"theme
 	" https://www.nordtheme.com/
 	colorscheme nord
+	set keymap=russian-jcukenwin
+	set iminsert=0
+	set imsearch=0
+	"Ctrl-L langswitch
+	inoremap <C-l> <C-^>
+	"cursor color
+	highlight lCursor guifg=NONE guibg=Cyan
 endif
 
 "spellcheck key
-map <F6> :setlocal spell! spelllang=en<CR>
-map <F5> :setlocal spell! spelllang=ru<CR>
+map <F6> :setlocal spell! spelllang=ru,en<CR>
 
 "hide search highlighting
 nnoremap <C-n> :nohlsearch<CR>
-
+"split
+nnoremap <space> <c-w>w
+nnoremap <C-w><space> :vertical resize 80<CR>
 "auto closing brackets
 "inoremap ( ()<left>
 "inoremap [ []<left>
@@ -101,5 +111,20 @@ inoremap <Up> <C-o>gk
 "delete trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
+"vimtex
 let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+set conceallevel=2
+let g:tex_conceal='abdgm'
+hi clear Conceal
+
+"nasm
+let filetype_i="nasm"
+let g:asmsyntax="nasm"
+let g:filetype_inc="nasm"
+
+"git
+autocmd FileType gitcommit set textwidth=72
+autocmd FileType gitcommit set colorcolumn=73
+autocmd FileType gitcommit DiffGitCached | wincmd L

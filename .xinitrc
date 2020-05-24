@@ -23,4 +23,4 @@ done &
 /usr/bin/sxhkd &
 [ $(date +%H) -gt 20 ] && /usr/local/bin/sct 3500 0.7 &
 xwallpaper --zoom $HOME/Pictures/Wallpapers/hm4k.jpg &
-exec /usr/bin/dwm
+exec /usr/local/bin/dwm

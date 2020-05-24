@@ -20,7 +20,7 @@ fi
 # colors
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias youtube-dl='youtube-dl --all-subs --sub-lang en -f (bestvideo[height<=?1080]+(bestaudio[acodec=opus]/bestaudio[acodec=vorbis]/bestaudio[acodec=aac]/bestaudio))/best --embed-subs '
+alias youtube-dl='youtube-dl --all-subs --sub-lang en -f "(bestvideo[height<=?1080]+(bestaudio[acodec=opus]/bestaudio[acodec=vorbis]/bestaudio[acodec=aac]/bestaudio))/best" --embed-subs '
 alias areco='arecord --channels=2 --format=dat --vumeter=stereo /tmp/test.wav'
 alias h='cat ~/.config/sxhkd/sxhkdrc'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'

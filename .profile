@@ -14,7 +14,7 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export ASPELL_CONF="per-conf $XDG_CONFIG_HOME/aspell/aspell.conf; personal $XDG_CONFIG_HOME/aspell/en.pws; repl $XDG_CONFIG_HOME/aspell/en.prepl"
-export VIMINIT=":source $XDG_CONFIG_HOME"/vim/vimrc
+export VIMINIT=":source ~/.config/vim/vimrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/startup.py
 
 export FREETYPE_PROPERTIES="truetype:interpreter-version=40"
