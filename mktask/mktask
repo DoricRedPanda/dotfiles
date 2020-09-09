@@ -1,8 +1,9 @@
 CC = gcc
 CFLAGS = -g -Wall -ansi -pedantic
 MYDIR = ~/.local/share/Mktask
-
 %: %.c
 	$(MYDIR)/checkpatch.pl -q --ignore SPDX_LICENSE_TAG --no-tree --no-signoff -f $@.c
 	$(CC) $(CFLAGS) $@.c -o $@
+%.c:
+	cp $(MYDIR)/example.c $@
 
