@@ -22,5 +22,5 @@ done &
 #/usr/bin/xcompmgr &
 /usr/bin/sxhkd &
 [ $(date +%H) -gt 20 ] && /usr/local/bin/sct 3500 0.7 &
-xwallpaper --zoom $HOME/Pictures/Wallpapers/hm4k.jpg &
-exec /usr/local/bin/dwm
+#xwallpaper --zoom $HOME/Pictures/Wallpapers/hm4k.jpg &
+exec dbus-launch --exit-with-session /usr/local/bin/dwm

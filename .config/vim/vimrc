@@ -23,8 +23,9 @@ set autoindent
 set smartindent
 set smarttab
 set tabstop=8
-set softtabstop=4
-"set shiftwidth=4
+set softtabstop=8
+set shiftwidth=8
+set cinoptions=:0,l1,t0,g0,(0,f0
 set noexpandtab
 set list listchars=extends:>,precedes:<,tab:»\ ,trail:~
 set ai
@@ -36,6 +37,7 @@ set wrap
 set splitbelow splitright
 set winwidth=80
 set winheight=24
+set textwidth=80
 set noequalalways
 
 "sugar
@@ -120,9 +122,9 @@ let g:tex_conceal='abdgm'
 hi clear Conceal
 
 "nasm
-let filetype_i="nasm"
-let g:asmsyntax="nasm"
-let g:filetype_inc="nasm"
+let filetype_i='nasm'
+let g:asmsyntax='nasm'
+let g:filetype_inc='nasm'
 
 "git
 autocmd FileType gitcommit set textwidth=72
