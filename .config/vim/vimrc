@@ -1,24 +1,41 @@
-"changes Vi settings to Vim settings
+""""""""""""""""""""""""""""""""
+"        _                     "
+" __   _(_)_ __ ___  _ __ ___  "
+" \ \ / / | '_ ` _ \| '__/ __| "
+"  \ V /| | | | | | | | | (__  "
+"   \_/ |_|_| |_| |_|_|  \___| "
+"                              "
+""""""""""""""""""""""""""""""""
+
+
+" changes Vi settings to Vim settings
 set nocompatible
 filetype plugin indent on
-"numbers apparently
+" numbers apparently
 set number
-set relativenumber " show relative line numbers
-"idktldr
+" show relative line numbers
+set relativenumber
+" display all matching files on tab completion
 set wildmenu
-"syntax highlighting
+set wildignore=*.git/*,*.tags,tags,*.o,*.class,*.ccls-cache
+" search files in subdirectories
+set path+=**
+set splitbelow
+set splitright
+
+" syntax highlighting
 syntax on
 set showmatch
-"search
+" search
 set incsearch
 set ignorecase
 set hlsearch
 set smartcase
-"turn off swap files
+" turn off swap files
 set noswapfile
 set nobackup
 set nowb
-"casual tabs
+" casual tabs
 set autoindent
 set smartindent
 set smarttab
@@ -30,45 +47,58 @@ set noexpandtab
 set list listchars=extends:>,precedes:<,tab:»\ ,trail:~
 set ai
 set cin
-"wrap long lines
+" wrap long lines
 set wrap
 
-"split, keep it nice and 80x24
+" split, keep it nice and 80x24
 set splitbelow splitright
 set winwidth=80
 set winheight=24
 set textwidth=80
 set noequalalways
 
-"sugar
+" sugar
 set sm
 
-"link vim's clipboard to system's
+" link vim's clipboard to system's
 set clipboard=unnamedplus
 
-"security
+" security
 set nomodeline
 
-"misc
+" misc
 set showcmd
 
-"folds
-"set foldlevelstart=999
-"set foldmethod=indent
 
-"xdg
-set undodir=$XDG_DATA_HOME/vim/undo
-set directory=$XDG_DATA_HOME/vim/swap
-set backupdir=$XDG_DATA_HOME/vim/backup
-set viewdir=$XDG_DATA_HOME/vim/view
-set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,/usr/share/vim/vimfiles,$VIMRUNTIME,/usr/share/vim/vimfiles/after,$XDG_CONFIG_HOME/vim/after
+" folds
+set foldlevelstart=999
+set foldmethod=syntax
+set foldlevel=99
 
-"save folds
-"autocmd BufWinLeave *.* mkview
-"autocmd BufWinEnter *.* silent loadview
+" xdg
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_DATA_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
 
-"cursor shape (change term name) and colors
+set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
+set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
+
+let g:netrw_home = $XDG_DATA_HOME."/vim"
+call mkdir($XDG_DATA_HOME."/vim/spell", 'p')
+set viewdir=$XDG_DATA_HOME/vim/view | call mkdir(&viewdir, 'p')
+
+set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, 'p')
+set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p')
+set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
+
+if !has('nvim') | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
+
+
+" save folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+" cursor shape (change term name) and colors
 if &term =~ 'st-256color'
 	let &t_SI .= "\<Esc>[6 q"
 	let &t_EI .= "\<Esc>[2 q"
@@ -76,33 +106,34 @@ if &term =~ 'st-256color'
 	set t_Co=256
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set ttymouse=sgr
 	set termguicolors
-	"theme
-	" https://www.nordtheme.com/
+" theme
+" https://www.nordtheme.com/
 	colorscheme nord
 	set keymap=russian-jcukenwin
 	set iminsert=0
 	set imsearch=0
-	"Ctrl-L langswitch
+" Ctrl-L langswitch
 	inoremap <C-l> <C-^>
-	"cursor color
+" cursor color
 	highlight lCursor guifg=NONE guibg=Cyan
 endif
 
-"spellcheck key
+" spellcheck key
 map <F6> :setlocal spell! spelllang=ru,en<CR>
 
-"hide search highlighting
-nnoremap <C-n> :nohlsearch<CR>
-"split
+" hide search highlighting
+nnoremap <silent> <leader>/ :nohlsearch<CR>
+" split
 nnoremap <space> <c-w>w
 nnoremap <C-w><space> :vertical resize 80<CR>
-"auto closing brackets
+" auto closing brackets
 "inoremap ( ()<left>
 "inoremap [ []<left>
 inoremap {<CR> {<CR>}<ESC>O
 
-"use arrow keys to move cursor up/down a displayed line
+" use arrow keys to move cursor up/down a displayed line
 nnoremap <Down> gj
 nnoremap <Up> gk
 vnoremap <Down> gj
@@ -110,10 +141,28 @@ vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
-"delete trailing whitespaces on save
+" delete trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-"vimtex
+" nasm
+let filetype_i='nasm'
+let g:asmsyntax='nasm'
+let g:filetype_inc='nasm'
+
+" git
+autocmd FileType gitcommit set textwidth=72
+autocmd FileType gitcommit set colorcolumn=73
+autocmd FileType gitcommit DiffGitCached | wincmd L
+
+" plugins
+
+autocmd! BufRead,BufNewFile *.org	packadd vim-dotoo | setlocal filetype=dotoo
+autocmd! BufRead,BufNewFile *.tex	packadd vimtex | packadd tex-conceal.vim
+
+"packloadall
+"silent! helptags ALL
+
+" vimtex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
@@ -121,12 +170,4 @@ set conceallevel=2
 let g:tex_conceal='abdgm'
 hi clear Conceal
 
-"nasm
-let filetype_i='nasm'
-let g:asmsyntax='nasm'
-let g:filetype_inc='nasm'
 
-"git
-autocmd FileType gitcommit set textwidth=72
-autocmd FileType gitcommit set colorcolumn=73
-autocmd FileType gitcommit DiffGitCached | wincmd L
