@@ -21,12 +21,23 @@ fi
 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x X >/dev/null && exec startx -- vt1
 
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 set -o vi
 
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-alias youtube-dl='youtube-dl --all-subs --sub-lang en -f "(bestvideo[height<=?1080]+(bestaudio[acodec=opus]/bestaudio[acodec=vorbis]/bestaudio[acodec=aac]/bestaudio))/best" --embed-subs --restrict-filenames'
+alias youtube-dl='youtube-dl --all-subs --sub-lang en -f "(bestvideo[height<=?1080][vcodec!=?vp9]+(bestaudio[acodec=opus]/bestaudio[acodec=vorbis]/bestaudio[acodec=aac]/bestaudio))/best" --embed-subs --restrict-filenames'
 alias areco='arecord --channels=2 --format=dat --vumeter=stereo /tmp/test.wav'
 alias h='cat ~/.config/sxhkd/sxhkdrc'
-alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
-alias mktask='make -f /home/master/.local/share/Mktask/mktask'
+alias audacity='GDK_DPI_SCALE=0.5 GDK_SCALE=2 audacity'
+
+function findc ()
+{
+    find $1 -name '*.[ch]'
+}

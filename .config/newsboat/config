@@ -1,0 +1,38 @@
+#show-read-feeds no
+auto-reload yes
+reload-threads 4
+
+#external-url-viewer "urlscan -dc -r 'st-linkselect.sh {}'"
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+include ~/.config/newsboat/nord
+
+browser sandboxed-firefox.sh
+macro , open-in-browser
+macro t set browser "qndl" ; open-in-browser ; set browser st-linkselect.sh
+#macro a set browser "tsp youtube-dl --add-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser st-linkselect.sh
+macro v set browser "setsid -f mpv" ; open-in-browser ; set browser st-linkselect.sh
+macro w set browser "lynx" ; open-in-browser ; set browser st-linkselect.sh
+macro d set browser "dmenuhandler" ; open-in-browser ; set browser st-linkselect.sh
+macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser st-linkselect.sh
+macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser st-linkselect.sh
+#macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser st-linkselect.sh
+#macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser st-linkselect.sh

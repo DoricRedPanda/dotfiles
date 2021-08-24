@@ -8,6 +8,8 @@ super + e
 	$TERMINAL -e vim
 super + b
 	$BROWSER
+super + n
+	$TERMINAL -e newsboat
 super + s
 	$TERMINAL -e alsamixer
 super + l

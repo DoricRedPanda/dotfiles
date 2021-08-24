@@ -6,6 +6,7 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 
 #clean-up
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export ANDROID_SDK_HOME="$XDG_DATA_HOME"/android
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
@@ -27,6 +28,7 @@ export TERMINAL=/usr/bin/st
 export BROWSER="$HOME"/.local/bin/sandboxed-firefox.sh
 export READER=/usr/bin/zathura
 export MANPAGER=vimmanpager
+export MANWIDTH=80
 
 if [ -f ~/.bashrc ] ; then
 	. ~/.bashrc
